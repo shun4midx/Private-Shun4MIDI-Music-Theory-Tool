@@ -1,0 +1,38 @@
+[SEMI-OFFICIAL SPEC DOCUMENT]
+
+What if we make the OOP WesternMain, Quartal, WholeTone, Japanese, and Custom? Then another "Jingles" (Rickroll/The Lick/Bad Apple)? Also where do I do the "away from concert piano" thing and instrument...
+
+class Manipulation {
+    class Scales
+
+    class Intervals
+}
+
+class MusicalPhrase {
+public:
+    class ConcertPhrase {
+        // Treat the following below as if each of them are a Handle class for classes of different genre classes WesternMain, Quartal, WholeTone, Japanese, Custom, and Jingles
+
+        class Note
+
+        class Chord
+
+        class Key
+
+    protected:
+    // ======== FUNCTIONS ======== // 
+        ostream print;
+        *insert all the other functions corresponding to each functionality of the tool*, maybe deal with it with Manipulation class
+    }
+
+protected:
+// ======== VARIABLES ======== // 
+    string instrument_name;
+    int instrument_offset; // Number of semitomes offset from concert key, negative meaning below, positive meaning above
+
+// ======== FUNCTIONS ======== // 
+    ostream print; // Create a new ConcertPhrase, transpose it (make sure to remain keyless for custom input and not change the Solfège) and then, call ConcertPhrase's ostream print
+    ConcertPhrase& concertify() // Returns concert key equivalent
+}
+
+class UserInteraction // Used to greet and declare commands and stuff 

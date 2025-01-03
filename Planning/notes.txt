@@ -1,2 +1,107 @@
-Notes/Brainstorm for the Project:
+OOP Design Brainstorm for the Project:
 Probably need classes and rewriting ostream because printing out something is exhausting every time
+
+// Use double even if it's mostly int because of 24-TET support for Custom Solfège
+
+// Need to determine dimensions of the print array (if cannot be consistently within the size of a phone, based on device type, as asked at the start of the program)
+
+class MusicalPhrase { // Different outputs depending on if the phrase is outputted on staff lines or just note names 
+    class Chord
+
+    class Note
+
+    class KeySignature {
+        class Key {
+        protected:
+            string MODES[8]; // 0th mode is "Custom"
+            vector<double> notes_scale;
+            vector<string> solfege_scale;
+            bool custom_solfege;
+            
+            string key_center; // Note letter center, if not custom_solfege
+            int mode_idx;
+            string key_parallel; // If !custom_solfege, what is the key parallel major? (ease to print clef), corresponds to equivalentKey()
+
+            vector<vector<string>> key_array; // Array for printing the key (for the part related to the key)
+            
+            void equivalentKey(); // Function needed to convert into relative major, probably done by programming the relationship between mode_idx and Ionian, then use that to transpose mode_idx, auto updates key_parallel (of course checks custom_solfege before updating)
+        }
+        
+        class Clef
+    }
+
+protected:
+    string key_status; // "Staff Lines" or "Letter Names"
+    string note_status; // "Regular" or "Custom" (referring to Custom Solfège)
+    vector<vector<string>> print_array; // Array to be printed
+    
+    void toggleKeyStatus(string status); // Set correct key status
+    ostream print; // Remember to factor in all of the partial print arrays
+
+    // Other array functions that correspond to the question
+}
+
+----------------------
+
+Alternatively, what if we make the OOP WesternMain, Quartal, WholeTone, Japanese, and Custom? Then another "Jingles" (Rickroll/The Lick/Bad Apple)? Also where do I do the "away from concert piano" thing and instrument...
+
+class Manipulation {
+    class Scales
+
+    class Intervals
+}
+
+class MusicalPhrase {
+public:
+    // ======== VERSION 1 CONCERTPHRASE ======== //
+    class ConcertPhrase {
+    public:
+    // Each of these classes has a class of Note and Chord and Key? (Unless inapplicable)
+        class WesternMain
+    
+        class Quartal
+    
+        class WholeTone
+
+        class Japanese
+
+        class Custom
+
+        class Jingles
+
+    protected:
+    // ======== VARIABLES ======== //
+        string genre;
+        string music_type; // "Note" or "Chord"
+    
+    // ======== FUNCTIONS ======== // 
+        ostream print;
+    }
+
+    // ======== VERSION 2 CONCERTPHRASE ======== // 
+    class ConcertPhrase {
+        // Treat the following below as if each of them are a Handle class for classes of different genre classes WesternMain, Quartal, WholeTone, Japanese, Custom, and Jingles
+        
+        class Note
+
+        class Chord
+
+        class Key
+
+    protected:
+    // ======== FUNCTIONS ======== // 
+        ostream print;
+        *insert all the other functions corresponding to each functionality of the tool*, maybe deal with it with Manipulation class
+    }
+
+protected:
+// ======== VARIABLES ======== // 
+    string instrument_name;
+    int instrument_offset; // Number of semitomes offset from concert key, negative meaning below, positive meaning above
+
+// ======== FUNCTIONS ======== // 
+    ostream print; // Create a new ConcertPhrase, transpose it (make sure to remain keyless for custom input and not change the Solfège) and then, call ConcertPhrase's ostream print
+    ConcertPhrase& concertify() // Returns concert key equivalent
+}
+
+class UserInteraction // Used to greet and declare commands and stuff 
