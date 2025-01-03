@@ -6,13 +6,16 @@ class Manipulation {
     class Scales
 
     class Intervals
+
+protected:
+    unordered_map key_offsets; // Maps string name of instrument to key_offset
 }
 
 class MusicalPhrase {
 public:
-    class ConcertPhrase {
-        // Treat the following below as if each of them are a Handle class for classes of different genre classes WesternMain, Quartal, WholeTone, Japanese, Custom, and Jingles
+    // Treat the following below as if ConcertPhrase is a Handle class for classes of different genre classes WesternMain, Quartal, WholeTone, Japanese, Custom, and Jingles
 
+    class ConcertPhrase {
         class Note
 
         class Chord
