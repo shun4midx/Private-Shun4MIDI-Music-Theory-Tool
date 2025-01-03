@@ -80,7 +80,7 @@ Basic:
 
 <br> Chords:
  - The user can input any chord name with **any chord extensions** (e.g. `Cmaj7b13`), and the desired inversion and/or slash chord, to output the chord to be displayed. Any chord in natural text form (i.e. not staff lines) would output in the order from the lowest to highest note in the chord. The input is straightforward, resembling normal text. Extended or altered dominants are supported.
- - The user can input any chord (with any chord extensions), except with the **note names only** (e.g. `C E G Ab G`), and the program can display the chord in staff line-notation and also **analyze the chord** (e.g. deduce this is a Cmaj7b13 chord). I plan to support different forms of harmony as indicated below with this, so e.g. `C F Bb` is interpreted as "C major quartal" and not some very obscure chord naming that doesn't reflect what this chord does. Extended or altered dominants are supported.
+ - The user can input any chord (with any chord extensions), except with the **note names only** (e.g. `C E G Ab B`), and the program can display the chord in staff line-notation and also **analyze the chord** (e.g. deduce this is a Cmaj7b13 chord). I plan to support different forms of harmony as indicated below with this, so e.g. `C F Bb` is interpreted as "C major quartal" and not some very obscure chord naming that doesn't reflect what this chord does. Extended or altered dominants are supported.
  - The user can check if any chord is in any scale or not, and if it is, which chord in the scale is it?
  - Suggests typical chord progression suggestions/auto-completion
  - Supports to **automatically voice-lead** any given chord progression
