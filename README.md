@@ -1,4 +1,4 @@
-# Shun4MIDI Music Theory Tool (Shun4MIDI: Part 1)
+# [PRIVATE] Shun4MIDI Music Theory Tool (Shun4MIDI: Part 1)
 ## Copyright Statement
 ============================================== <br>
 || Copyright (c) 2025 Shun/順海 (@shun4midx) at Shun4MIDI || <br>
@@ -80,7 +80,7 @@ Basic:
 
 <br> Chords:
  - The user can input any chord name with **any chord extensions** (e.g. `Cmaj7b13`), and the desired inversion and/or slash chord, to output the chord to be displayed. Any chord in natural text form (i.e. not staff lines) would output in the order from the lowest to highest note in the chord. The input is straightforward, resembling normal text. Extended or altered dominants are supported.
- - The user can input any chord (with any chord extensions), except with the **note names only** (e.g. `C E G Ab G`), and the program can display the chord in staff line-notation and also **analyze the chord** (e.g. deduce this is a Cmaj7b13 chord). I plan to support different forms of harmony as indicated below with this, so e.g. `C F B` is interpreted as "C major quartal" and not some very obscure chord naming that doesn't reflect what this chord does. Extended or altered dominants are supported.
+ - The user can input any chord (with any chord extensions), except with the **note names only** (e.g. `C E G Ab G`), and the program can display the chord in staff line-notation and also **analyze the chord** (e.g. deduce this is a Cmaj7b13 chord). I plan to support different forms of harmony as indicated below with this, so e.g. `C F Bb` is interpreted as "C major quartal" and not some very obscure chord naming that doesn't reflect what this chord does. Extended or altered dominants are supported.
  - The user can check if any chord is in any scale or not, and if it is, which chord in the scale is it?
  - Suggests typical chord progression suggestions/auto-completion
  - Supports to **automatically voice-lead** any given chord progression
@@ -91,12 +91,12 @@ Basic:
 <br> Alternate Harmony:
  - Support for **quartal harmony** 😎 (Quartal chord generation based on a root note, any inversion of quartal chords, modal interchange of quartal chords, "Given a (custom) scale or short musical excerpt, how many quartal chords can I generate with notes purely diatonic to the scale excerpt?", etc)
  - Support for **whole-tone harmony** 😍 (Whole-tone chord generation based on a root note, any inversion of whole-tone chords, modal interchange from other modes by weaving in whole-tone harmony if desired, etc)
- - Support for **Japanese pentatonic scales** (Yō-sen/陽旋 or In-sen/陰旋 as selected by the user). More will be revealed when the code is done, but let's just say it blends really well with quartal harmony as a new hybrid of **"J-Pentatonic Harmony" (coined by me, 2025)**, if I can get it worked out, which I'm 90% sure I can 👀 The main idea of what I will offer is modulation between any Yo-sen and In-sen scale, and also some things that are related to hybrid and quartal harmony in these scales (which I call J-Pentatonic Harmony), that I can't yet reveal, since they are relatively new concepts that I don't doubt I may be one of the first to actually document.
+ - Support for **Japanese pentatonic scales** (Yō-sen/陽旋 or In-sen/陰旋 as selected by the user). More will be revealed when the code is done, but let's just say it blends really well with quartal harmony as a new hybrid of **"J-Pentatonic Harmony" (coined by me, 2025)**, if I can get it worked out, which I'm 90% sure I can 👀 The main idea of what I will offer is modulation between any Yō-sen and In-sen scale, and also some things that are related to hybrid and quartal harmony in these scales (which I call J-Pentatonic Harmony), that I can't yet reveal, since they are relatively new concepts that I don't doubt I may be one of the first to actually document.
  - (*) Support for the inputing of **custom scales/solfège** for analysis, although for the C++ code it will only last for one "Run" attempt and reset afterwards. As of right now, I only support the inputing into a Western-notation equivalent. It will support microtonal notation too. I'm not diving into microtonal harmony at least for the Shun4MIDI Music Theory Tool, but this would be only natural to preserve authenticity of custom scales. There will be an option to include a different rising and falling scale! Transposition of these scales to different starting keys are supported, and visiual representation is offered. When inputed a melody in solfège of a custom scale, basic suggestions with vibrato and gliding will be supported. 
  
 (*) This is because, "Western music theory" isn't the only music theory there is out there, and this is a way to say "I'm not so familiar with other music theory, but this is my way of supporting e.g. Indian ragas and Arabic maqam". There would not be harmonic analysis, since these musical genres do not center around harmony.
 
-*Can you tell quartal harmony and whole-tone melody were a huge hyperfixation of mine in high school? :D Yo-sen and In-sen were fleeting interests of mine too so I loved to see the connections between these forms of music!*
+*Can you tell quartal harmony and whole-tone melody were a huge hyperfixation of mine in high school? :D Yō-sen and In-sen were fleeting interests of mine too so I loved to see the connections between these forms of music!*
 
 ## Instructions to Run This Program
 Everything is located at `main.cpp`, you just need to run that file and all instructions will be clear in the program. If you are not familiar with programming, with the Replit link, just press "run", and you'll see the program start running in the "shell". (When the program is finished and this README is not just a preview, I will probably include more detailed instructions after figuring out how to exactly explain how Replit works to a non-programmer, so don't sweat!)

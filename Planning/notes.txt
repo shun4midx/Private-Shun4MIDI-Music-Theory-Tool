@@ -1,0 +1,2 @@
+Notes/Brainstorm for the Project:
+Probably need classes and rewriting ostream because printing out something is exhausting every time
