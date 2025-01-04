@@ -2,13 +2,19 @@
 
 What if we make the OOP WesternMain, Quartal, WholeTone, Japanese, and Custom? Then another "Jingles" (Rickroll/The Lick/Bad Apple)? Also where do I do the "away from concert piano" thing and instrument...
 
-class Manipulation {
-    class Scales
+class Manip {
+    class NoteManip {
+        class Scales 
 
-    class Intervals
+        class Intervals
 
-protected:
-    unordered_map key_offsets; // Maps string name of instrument to key_offset
+    protected:
+        unordered_map key_offsets; // Maps string name of instrument to key_offset
+    }
+
+    class ChordManip {
+        
+    }
 }
 
 class MusicalPhrase {
@@ -18,7 +24,7 @@ public:
     class ConcertPhrase {
         class Note
 
-        class Chord
+        class Chord <- stores chords as vectors stacking from root to upward
 
         class Key
 
@@ -38,4 +44,37 @@ protected:
     ConcertPhrase& concertify() // Returns concert key equivalent
 }
 
-class UserInteraction // Used to greet and declare commands and stuff 
+class UserIO // Used to greet and declare commands and stuff 
+
+---------------------------
+Okay, we should divide up the code to see which part of which code needs which class
+ 
+This part would not include the specific functions and stuff, just the bare bone and where each part belongs?
+
+#####################################
+REDO-ish?
+
+class Manip {
+    class NoteManip { <- All of Basic
+        class Scales
+        class Intervals
+        class CircleHarmony // Circle of 4ths/5ths
+    }
+
+    class ChordManip { <- All of "Chords" (NO Alternate Harmony)
+        class MainManip
+        class QuartalManip
+        class WholeToneManip
+        class JapaneseManip
+    }
+}
+
+class MusicalPhrase {
+    class ConcertPhrase { // Handle class for WesternMain, Quartal, WholeTone, Japanese, Custom, and Jingles
+        class Note
+        class Chord
+        class Key
+    }
+}
+
+class UserIO {}
