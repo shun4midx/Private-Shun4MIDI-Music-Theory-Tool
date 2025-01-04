@@ -54,23 +54,28 @@ This part would not include the specific functions and stuff, just the bare bone
 #####################################
 REDO-ish?
 
-class Manip {
+class Manip { // Handle class for all of the possible manips
     class NoteManip { <- All of Basic
         class Scales
         class Intervals
         class CircleHarmony // Circle of 4ths/5ths
     }
 
-    class ChordManip { <- All of "Chords" (NO Alternate Harmony)
-        class MainManip
+    class ChordManip is friends with NoteManip { // Handle class for all the chord manips
+        class MainChordManip
+
         class QuartalManip
+
         class WholeToneManip
+
         class JapaneseManip
+
+        class CustomManip
     }
 }
 
 class MusicalPhrase {
-    class ConcertPhrase { // Handle class for WesternMain, Quartal, WholeTone, Japanese, Custom, and Jingles
+    class ConcertPhrase is friends with class Manip { // Handle class for WesternMain, Quartal, WholeTone, Japanese, Custom, and Jingles
         class Note
         class Chord
         class Key
