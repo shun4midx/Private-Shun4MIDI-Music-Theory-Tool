@@ -32,6 +32,11 @@ Alternate Harmony:
  - (*) Support for the inputing of **custom scales/solfège** for analysis, although for the C++ code it will only last for one "Run" attempt and reset afterwards. As of right now, I only support the inputing into a Western-notation equivalent. It will support microtonal notation too. I'm not diving into microtonal harmony at least for the Shun4MIDI Music Theory Tool, but this would be only natural to preserve authenticity of custom scales. There will be an option to include a different rising and falling scale! Transposition of these scales to different starting keys are supported, and visiual representation is offered. When inputed a melody in solfège of a custom scale, basic suggestions with vibrato and gliding will be supported. 
 */
 
+#include <vector>
+#include <string>
+
+using namespace std;
+
 class Manip { // Handle class for all of the possible manips
     class NoteManip { // <- All of Basic
         class Scales; // has-a
@@ -39,9 +44,9 @@ class Manip { // Handle class for all of the possible manips
         class CircleHarmony; // has-a; Circle of 4ths/5ths
 
         class JapaneseManip; // is-a
-        class CustomManip; // is-a
+        class CustomManip; // is-a, custom solfège uses some parts of MusicalPhrase and not other parts
     };
-
+   
     class ChordManip { // Handle class for all the chord manips
         friend class NoteManip;
 
@@ -55,9 +60,50 @@ class MusicalPhrase {
     class ConcertPhrase { // has-a; Handle class for WesternMain, Quartal, WholeTone, Japanese, Custom, and Jingles
         friend class Manip;
         
-        class Note; // has-a
+        class Note { // has-a
+        friend class Key; // Friend class to calculate any note w.r.t solfege notation
+
+        public:
+            static string noteNumToString(double num); // Returns "Custom" if said note of the Note class is not within normal 12-TET
+            static string noteStringToNum(string str);
+            static string noteSolfege(string Key, Note note);
+
+        protected:
+            double note_num; // The note in number, letting 0.0 be middle C, and every half step means an increment/decrement of 1.0 (Double is to accomodate 24-TET)
+            string note_name; // E.g. "C#"
+        };
+
         class Chord; // has-a; Make it using the Note class instead for ease of calculation? Or store both?
-        class Key; // has-a
+        class Key { // has-a; Uses the class Note for its notes or else it will be hell to actually code
+            friend class Note;
+            /*
+            MODES: (Order from least flats to most flats is the order I like, i.e. "Lydian to Locrian")
+             - Lydian: 1 2 3 #4 5 6 7 1
+             - Ionian: 1 2 3 4 5 6 7 1
+             - Mixolydian: 1 2 3 4 5 6 b7 1
+             - Dorian: 1 2 b3 4 5 6 b7 1
+             - Aeolian: 1 2 b3 4 5 b6 b7 1
+             - Phrygian: 1 b2 b3 4 5 b6 b7 1
+             - Locrian: 1 b2 b3 4 b5 b6 b7 1
+            */
+
+            /*
+            MINOR SCALES: (Remember to account for all different kinds of minor scales)
+             - Natural Minor: 1 2 b3 4 5 b6 b7 1
+             - Harmonic Minor: 1 2 b3 4 5 b6 n7 1 
+             - Melodic Minor: 1 2 b3 4 5 n6 n7 1
+            ^ Note that "n" means "natural" instead of b or #
+            */
+
+        public: // Aim for public access, just makes more sense to write under the class Key
+            static const string MODES[8]; // {"Custom", "Lydian", "Ionian", "Mixolydian", "Dorian", "Aeolian", "Phrygian", "Locrian"}; static makes it accessible without needing an instance of class Key
+
+        protected:
+            vector<Note> notes_scale; // E.g. A B C# D E F# G# A
+            vector<string> solfege_scale; // E.g. "do re mi fa sol la ti do"
+            bool custom_solfege; // Do we use custom solfege or not
+            // Key center can be determined from the first element of the notes_scale or set to C too if custom_solfege is true
+        };
     };
 };
 
