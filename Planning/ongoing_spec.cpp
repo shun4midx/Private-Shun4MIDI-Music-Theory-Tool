@@ -59,16 +59,18 @@ class Manip { // Handle class for all of the possible manips
 class MusicalPhrase {
     class ConcertPhrase { // has-a; Handle class for WesternMain, Quartal, WholeTone, Japanese, Custom, and Jingles
         friend class Manip;
-        
+
+        class Key; // Forward declaration of Key
+
         class Note { // has-a
         // REMEMBER: THERE IS A NEED TO REMEMBER WHICH WAY THEY WRITE THE NOTES (with which enharmonic). Going to do so with b = -1, # = 1, bb = -2, etc, and 0 being natural
 
             friend class Key; // Friend class to calculate any note w.r.t solfege notation
 
         public:
-            static string noteNumToString(double num); // Returns "Custom" if said note of the Note class is not within normal 12-TET
-            static string noteStringToNum(string str);
-            static string noteSolfege(Key key, Note note);
+            static string noteNumToString(const double& num); // Returns "Custom" if said note of the Note class is not within normal 12-TET
+            static string noteStringToNum(const string& str);
+            static string noteSolfege(const Key& key, const Note& note);
 
         protected:
             double note_num; // The note in number, letting 0.0 be middle C, and every half step means an increment/decrement of 1.0 (Double is to accomodate 24-TET)
@@ -77,6 +79,7 @@ class MusicalPhrase {
         };
 
         class Chord; // has-a; Make it using the Note class instead for ease of calculation? Or store both?
+
         class Key { // has-a; Uses the class Note for its notes or else it will be hell to actually code
             friend class Note;
             /*
