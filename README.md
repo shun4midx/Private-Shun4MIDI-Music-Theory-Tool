@@ -1,7 +1,7 @@
 # [PRIVATE] Shun4MIDI Music Theory Tool (Shun4MIDI: Part 1)
 ## Copyright Statement
 ============================================== <br>
-|| Copyright (c) 2025 Shun/順海 (@shun4midx) at Shun4MIDI || <br>
+|| Copyright (c) 2025 Shun/翔海 (@shun4midx) at Shun4MIDI || <br>
 ============================================== <br>
 
 ## ⚠️ DISCLAIMER ⚠️
