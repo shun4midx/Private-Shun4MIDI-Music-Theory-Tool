@@ -61,15 +61,18 @@ class MusicalPhrase {
         friend class Manip;
         
         class Note { // has-a
-        friend class Key; // Friend class to calculate any note w.r.t solfege notation
+        // REMEMBER: THERE IS A NEED TO REMEMBER WHICH WAY THEY WRITE THE NOTES (with which enharmonic). Going to do so with b = -1, # = 1, bb = -2, etc, and 0 being natural
+
+            friend class Key; // Friend class to calculate any note w.r.t solfege notation
 
         public:
             static string noteNumToString(double num); // Returns "Custom" if said note of the Note class is not within normal 12-TET
             static string noteStringToNum(string str);
-            static string noteSolfege(string Key, Note note);
+            static string noteSolfege(Key key, Note note);
 
         protected:
             double note_num; // The note in number, letting 0.0 be middle C, and every half step means an increment/decrement of 1.0 (Double is to accomodate 24-TET)
+            double accidental_num;
             string note_name; // E.g. "C#"
         };
 
